@@ -1,0 +1,162 @@
+html {
+    font-size:62.5%;
+}
+body {
+    color:#333333;
+    font-family: "游ゴシック体",Yugothic,Arial, Helvetica, sans-serif;
+    font-weight:500px;
+}
+.enFont {
+    font-family: "Centry Gothic",CentryGothic,Yugothic,Arial, Helvetica, sans-serif;
+}
+.container {
+    display: flex;
+}
+.aside {
+    width: 220px;
+}
+/* subHeader */
+.subHeader {
+    width: 100%;
+    font-size: 27px;
+    color:aliceblue;
+    display: flex;
+    align-items: center;
+    background-color: #009fff;
+    padding: 15px 15px;
+    font-weight: bolder;
+    box-shadow: 3px 3px 10px rgba(39,51,145, .3);
+    text-shadow: 3px 3px 10px rgba(38, 41, 67, 0.3);
+}
+.subheaderList {
+    font-size: 10px;
+    margin-left: 1150px;
+}
+.subheaderList:hover {
+    opacity: 0.6;
+}
+.button{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    height: 34px;
+    width: 44px;
+    display: block;
+    box-sizing: border-box;
+    background-color: #60371B;
+    border: none;
+    padding: 6px 10px;
+    }
+    .button div {
+    position: absolute;
+    left: 10px;
+    height: 2px;
+    width: 24px;
+    background-color: #fff;
+    border-radius: 1px;
+    display: inline-block;
+    box-sizing: border-box;
+    }
+    .button div:nth-of-type(1) {
+    top: 6px;
+    }
+    .button div:nth-of-type(2) {
+    top: 16px;
+    }
+    .button div:nth-of-type(3) {
+    bottom: 6px;
+    }
+/* aside */
+.mainMenu { 
+    border-right: 1px solid #c4bcbc;
+    width: 220px;
+    height: 100vh;
+    padding-top: 20px
+}
+.listMenu__title1 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding: 0px 20px;
+}
+.listMenu__title3 {
+    font-weight: inherit;
+    margin-bottom: 5px;
+    padding: 0px 20px;
+    font-size: 13px;
+}
+.listMenu__title2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+/* ↓ 現在使用していないが、将来使うかもなので残しておく */
+.listMenu__titleInput {
+    border: 1px solid #b9b3b3;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 8px;
+    width: 100%;
+}
+.listMenu__item {
+    padding: 15px;
+}
+.listMenu__classSelect {
+    border: 1px solid #dedede;
+    font-size: 13px;
+    padding: 5px;
+    border-radius: 6px;
+    width: 100%;
+    background-color: #e2cbcb47;
+}
+.listMenu__classSelect:hover {
+    opacity: 0.7;
+}
+.listMenu__button {
+    font-size: 14px;
+    color: #fff;
+    background-color: #1877f2;
+    display: flex;
+    border-radius: 1000px;
+    box-shadow: 3px 3px 10px rgba(39,51,145, .3);
+    justify-content: center;
+    padding: 5px 0px;
+    align-items: center;
+    width: 100px;
+    transition: 0.5s;
+}
+.listMenu__button:hover {
+    opacity: 0.6;
+}
+.listMenu__button--class {
+    width: 185px;
+    padding: 5px 15px;
+    font-size: 11px;
+
+}
+.listMenu__button--classStudent {
+    width: 185px;
+    padding: 5px 15px;
+    font-size: 11px;
+}
+.listMenu__button--community {
+    width: 185px;
+    padding: 5px 15px;
+    font-size: 11px;
+}
+.listMenu__buttonLayout {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.listMenu__buttonLayout2 {
+    margin-top: 25px;
+    margin-bottom: -5px;
+    display: flex;
+    justify-content: center;
+}
+.listMenu__buttonLayout3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

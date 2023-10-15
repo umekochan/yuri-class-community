@@ -1,0 +1,36 @@
+/*main*/
+.mainTitle__h1 {
+    font-size: 30px;
+    padding: 20px 40px 0 330px;
+    color: #fcfcffcf;
+    opacity: 3.0;
+    width: 100%;
+    font-family: OCRB;
+}
+.mainTitle__li {
+    padding: 10px 45px 20px 250px;
+    opacity: 3.0;
+    font-size: 22px;
+    color: #efeef2cf;
+    font-family: OCRB;
+}
+main {
+    background-image: url('/assets/img/shoolPage/main-back.jpg');
+    background-size: cover;
+    width: 100%;
+}
+.main__map {
+    padding: 9px 0 0 50px;
+}
+.mainTitle__a {
+    padding: 10px 45px 20px 250px;
+    opacity: 3.0;
+    font-size: 22px;
+    color: #2536f5;
+    font-family: OCRB;
+    transition: background-color 0.5s;
+    margin-left: 30px;
+}
+.mainTitle__a:hover {
+    opacity: 0.6;
+}

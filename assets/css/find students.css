@@ -1,0 +1,25 @@
+.listMenu__buttonLayout2 {
+    opacity: 0.6;
+}
+.main{
+    width: 100%;
+    background-color: rgb(187 181 181 / 20%);
+}
+.searchBox {
+    border: 1px solid #b9b3b3;
+    font-size: 17px;
+    padding: 5px;
+    margin-left: 150px;
+    margin-top: 40px;
+    border-radius: 20px;
+    width: 60%;
+    background-color: #e2cbcb47;
+}
+.listMenu__button--find-student {
+    margin-left: 450px;
+    margin-top: 20px;
+    font-size: 17px;
+}
+.listMenu__button--find-student:hover {
+    opacity: 0.6;
+}

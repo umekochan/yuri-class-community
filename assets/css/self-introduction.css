@@ -1,0 +1,77 @@
+/*main*/
+.main {
+    width: 100%;
+    background-color: rgb(187 181 181 / 20%);
+}
+.mainTitle {
+    width: 100%;
+}
+.mainName__h1 {
+    color: #050210cf;
+    opacity: 3.0;
+    font-family: OCRB;
+    font-size: 38px;
+    padding: 30px 50px;
+}
+.mainName__h2 {
+    color: #050210cf;
+    opacity: 3.0;
+    font-family: OCRB;
+    font-size: 20px;
+    padding: 0 50px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+.main__profile {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-bottom: -20px;
+}
+.mainTitle__textrarea {
+    border: 1px solid #e0bfbf;
+    font-size: 16px;
+    border-radius: 6px;
+    width: 80%;
+    padding: 15px;
+    word-break: break-all;
+}
+.mainTitle__textrareaForm {
+    padding: 20px;
+}
+.listMenu__buttonLayout4 {
+    padding: 20px 40px;
+}
+.mainBackButton {
+    font-size: 17px;
+    position: relative;
+	width: 1.2em;
+	height: 1.2em;
+	border-top: 0.1em solid #fcfcfc;
+	border-left: 0.1em solid transparent;
+	border-right: 0.1em solid #fcfcfc;
+	border-bottom: 0.1em solid #fcfcfc;
+	border-radius: 100% 100% 100% 100%;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+    margin-left: 5px;
+    margin-top: -25px;
+}
+.mainBackButton::before {
+    content: "";
+	position: absolute;
+	top: 0.05em;
+	left: -0.25em;
+	width: 0;
+	height: 0;
+	border-top: 0.25em solid transparent;
+	border-right: 0.5em solid #fcfcfc;
+	border-bottom: 0.25em solid transparent;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.listMenu__buttonLayout5 {
+    padding: 10px 40px;
+}
+.fa-plus {
+    font-size: 15px;
+}
