@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/lib/reset.css">
     <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/css/classPage.css">
+    <link rel="stylesheet" href="/assets/css/schoolPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Class Community--Class Page</title>
+    <title>Class Community--School Page</title>
+    <?php
+    wp_head();
+    ?>
 </head>
 <header>
 <div class="subHeader">
@@ -78,10 +81,10 @@
                     <option value="">6-7</option>
                 </select>
                 <div class="listMenu__buttonLayout">
-                    <button type="button" class="listMenu__button"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a></button>
+                    <button type="button" class="listMenu__button"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a></input>
                 </div>
                 <div class="listMenu__buttonLayout2">
-                    <button type="button" class="listMenu__button listMenu__button--classStudent"><i class="fas fa-user"></i><a href="/find students.html" class="">生徒を探す</a></button>
+                    <button type="button" class="listMenu__button listMenu__button--classStudent"><i class="fas fa-user"></i><a href="/find students.html" class="">生徒を探す</a></input>
                 </div>
             </div>
             <div class="listMenu__item">
@@ -92,25 +95,15 @@
             </div>
         </div>
     </aside>
-    <main class="main">
-        <div class="classTitle">
-            <h2 class="classTitleName">中等2年4組</h2>
-            <h2 class="classTitleName2">@F棟302教室</h2>
-        </div>
-        <div class="classMenu">
-            <div class="listClass__button1">
-                <button type="button" class="listClassMenu__button listClassMenu__button--classMember"><i class="fa-solid fa-user-group"></i><a href="" class="">クラスメンバー</a></button>
-            </div>
-            <div class="listClass__button1">
-                <button type="button" class="listClassMenu__button listClassMenu__button--wacthPicture"><i class="fa-regular fa-images"></i><a href="" class="">最近のクラス写真</a></button>
-            </div>
-            <div class="listClass__button1">
-                <button type="button" class="listClassMenu__button listClassMenu__button--learningRecords"><i class="fa-solid fa-clipboard"></i><a href="" class="">クラスの学習記録</a></button>
-            </div>
-        </div>
-        <div class="classMember">
+    <main>
+        <h1 class="mainTitle__h1">桐蔭学園中等教育学校</h1>
+        <ul>
+            <li class="mainTitle__li">場所       〒225-8502神奈川県横浜市青葉区鉄町1614番地 </li>
+            <li class="mainTitle__li">電話番号       045-971-1411</li>
+        </ul>
+        <a href="https://toin.ac.jp/ses/" class="mainTitle__a" style="text-decoration: underline">桐蔭学園中等教育学校のホームページはこちら</a>
+        <div class="main__map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.4523853568967!2d139.52002462531647!3d35.56722443622909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f9dde300b9a3%3A0x6010bd7537604bad!2z5qGQ6JSt5a2m5ZyS5Lit562J5pWZ6IKy5a2m5qCh!5e0!3m2!1sja!2sjp!4v1693137586102!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 
-        </div>
     </main>
 </div>
 <body>

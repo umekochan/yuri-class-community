@@ -54,6 +54,7 @@
 .listClassMneu__button--classMember {
     padding: 5px 15px;
     font-size: 11px;
+    opacity: 0.6;
 }
 .listClassMenu__button--learningRecords {
     padding: 5px 15px;
@@ -66,4 +67,7 @@
     font-size: 11px;
     margin-top: 10px;
     font-size: 14px;
+}
+.classMember {
+    opacity: 0.6;
 }
