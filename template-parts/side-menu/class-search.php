@@ -1,29 +1,5 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/lib/reset.css">
-    <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/css/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script></script>
-    <title>Class Community--login</title>
-</head>
-<header>
-<div class="subHeader">
-    <h2 class="subHeader__heading">Class Community</h2>
-    <nav>
-        <button class="menu-toggle">
-        <div></div>
-        <div></div>
-        <div></div>
-        </button>
-        </nav>
-</div>
-</header>
-<div class="container">
-    <aside>
+<?php get_header(); ?>
+<aside>
         <div class="mainMenu">
             <h2 class="listMenu__title1">桐蔭学園中等教育学校</h2>
             <p class="listMenu__title3">榎本悠里<br> 2年4組 ７番</p>
@@ -90,28 +66,3 @@
             </div>
         </div>
     </aside>
-    <main class="main">
-        <div class="login-page">
-            <div class="login-pageTitle">
-                <h2 class="login-pageTitle-h2">WELCOME TO</h2>
-                <br>
-                <h1 class="login-pageTitle-h1">CLASS COMMUNITY</h1>
-                <br>
-                <h2 class="login-pageTitleExplanation">CLASS COMMUNITYを使うことによって<br>他クラスの授業記録が見れたり、<br>学校で新たなコミュニティを構築することができます。</h2>
-            </div>
-            <div class="login-pageTitle-email"></div>
-        </div>
-    </main>
-    <div class="sideMenu">
-        <div class="login-form">
-            <h2 class="login-formTitle">SIGN IN</h2>
-            <h2 class="passwordTitle">ユーザー</h2>
-            <input type="text" id="password" class="login-formPassword" rows="100" value="パスワードを入力">
-            <h2 class="schoolIdTitle">学校</h2>
-            <input type="text" id="id" class="login-formSchoolId" rows="100" value="学校idを入力">
-            <button type="button" class="login-formButton"><a href="" class="">ログイン</a></button>
-            <div class="forgotPassword"><a href="" class="">パスワードを忘れた場合</a></div>
-            <div class="administratorLogin"><a href="" class="">管理者ログイン</a></div>
-        </div>
-</div>
-</html>
