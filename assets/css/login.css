@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 .listMenu__title {
     font-size: 16px;
     font-weight: bold;
     padding: 7px 7px;
 }
+=======
+>>>>>>> dd6037e454a3dc8a8ff335aba08a3e2b77d4916d
 /* main*/
 .main{
     width: 50%;
@@ -48,7 +51,10 @@
     font-size: 25px;
     margin-left: 130px;
     margin-top: 30px;
+<<<<<<< HEAD
     margin-bottom: 30px;
+=======
+>>>>>>> dd6037e454a3dc8a8ff335aba08a3e2b77d4916d
     font-weight: bolder;
 }
 .passwordTitle {
@@ -64,7 +70,10 @@
     margin: 45px 65px;
     margin-top: 20px;
     margin-bottom: 28px;
+<<<<<<< HEAD
     padding: 2px;
+=======
+>>>>>>> dd6037e454a3dc8a8ff335aba08a3e2b77d4916d
 }
 .schoolIdTitle {
     font-size: 18px;
@@ -76,7 +85,10 @@
     font-size: 21px;
     border-radius: 10px;
     margin: 10px 65px;
+<<<<<<< HEAD
     padding: 2px;
+=======
+>>>>>>> dd6037e454a3dc8a8ff335aba08a3e2b77d4916d
 }
 .login-formButton {
     font-size: 20px;
