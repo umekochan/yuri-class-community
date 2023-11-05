@@ -1,0 +1,114 @@
+.listMenu__title {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 7px 7px;
+}
+/* main*/
+.main{
+    width: 50%;
+    background-color: rgb(187 181 181 / 20%);
+}
+.login-pageTitle {
+    padding: 20px;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+.login-pageTitle-h2 {
+    font-size: 40px;
+    color: #3c3838;
+    text-shadow: 3px 3px 10px rgba(38, 41, 67, 0.3);
+    font-weight: bolder;
+}
+.login-pageTitle-h1 {
+    font-size: 50px;
+    color: #009fff;
+    text-shadow: 3px 3px 10px rgba(38, 41, 67, 0.3);
+    font-weight: bolder;
+}
+.login-pageTitleExplanation {
+    font-size: 20px;
+    margin-top: 30px;
+    line-height: 24px;
+}
+/* sideMenu */
+.sideMenu {
+    width: 50%;
+    background-color: rgb(187 181 181 / 20%);
+}
+.login-form {
+    background-color: #ffffff;
+    background-size: 500px;
+    height: 380px;
+    width: 380px;
+    margin: 70px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(39,51,145, .3);
+}
+.login-formTitle {
+    font-size: 25px;
+    margin-left: 130px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: bolder;
+}
+.passwordTitle {
+    font-size: 18px;
+    margin: -5px 62px;
+    margin-top: 10px;
+    margin-bottom: -13px;
+}
+.login-formPassword {
+    border: 1px solid #b9b3b3;
+    font-size: 21px;
+    border-radius: 10px;
+    margin: 45px 65px;
+    margin-top: 20px;
+    margin-bottom: 28px;
+    padding: 2px;
+}
+.schoolIdTitle {
+    font-size: 18px;
+    margin: -10px 62px;
+    margin-bottom: -3px;
+}
+.login-formSchoolId {
+    border: 1px solid #b9b3b3;
+    font-size: 21px;
+    border-radius: 10px;
+    margin: 10px 65px;
+    padding: 2px;
+}
+.login-formButton {
+    font-size: 20px;
+    color: #fff;
+    background-color: #1877f2;
+    display: flex;
+    border-radius: 500px;
+    box-shadow: 3px 3px 10px rgba(39,51,145, .3);
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    transition: 0.5s;
+    margin: 10px 65px;
+    margin-top: 35px;
+}
+.login-formButton:hover {
+    opacity: 0.6;
+}
+.forgotPassword {
+    font-size: 12px;
+    margin: 0 120px;
+    color: #009fff;
+}
+.forgotPassword:hover {
+    opacity: 0.6;
+}
+.administratorLogin:hover {
+    opacity: 0.6;
+}
+.administratorLogin {
+    font-size: 12px;
+    margin: 10px 140px;
+    color: #009fff;
+}
+
