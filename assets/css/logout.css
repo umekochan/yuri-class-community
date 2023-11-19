@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(187,181,181,20%);
+    width: 100%;
+}
+.listMenu__title {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 7px 7px;
+}
+/* main */
+.main {
+    display: flex;
+}
+.logout_message {
+    font-weight: bold;
+    font-size: 60px;
+    padding: 50px 50px;
+}
