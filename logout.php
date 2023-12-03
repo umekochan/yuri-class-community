@@ -14,6 +14,6 @@
 </body>
 </html>
 <?php 
-$_SESSION["id"] = null;
-$_SESSION["email"] = null;
+$_SESSION = [];
+session_destroy();
 ?>

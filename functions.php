@@ -6,4 +6,8 @@
         header("Location:{$url}index.php");
         exit;
     }
+    function sc_is_login(){
+        $login = !empty($_SESSON["id"]);
+        return $login;
+    }
     ?>

@@ -34,7 +34,7 @@ body {
 .login-pageTitleExplanation {
     font-size: 20px;
     margin-top: 30px;
-    line-height: 24px;
+    line-height: 1.5;
 }
 /* sideMenu */
 .sideMenu {
@@ -45,18 +45,24 @@ body {
 .login-form {
     background-color: #ffffff;
     background-size: 500px;
-    height: 380px;
     width: 380px;
     margin: 100px 240px;
     border-radius: 10px;
     box-shadow: 1px 1px 5px rgba(39,51,145, .3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px;
 }
 .login-formTitle {
     font-size: 25px;
-    margin-left: 130px;
-    margin-top: 30px;
     margin-bottom: 30px;
     font-weight: bolder;
+}
+.login-formInputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .passwordTitle {
     font-size: 18px;
@@ -64,14 +70,16 @@ body {
     margin-top: 10px;
     margin-bottom: -13px;
 }
-.login-formPassword {
+.login-formInput::placeholder {
+    color: #999696;
+}
+.login-formInput {
     border: 1px solid #b9b3b3;
-    font-size: 21px;
+    font-size: 14px;
     border-radius: 10px;
-    margin: 45px 65px;
-    margin-top: 20px;
-    margin-bottom: 28px;
-    padding: 2px;
+    margin: 8px 0;
+    width: 261px;
+    padding: 7px 15px;
 }
 .schoolIdTitle {
     font-size: 18px;
@@ -96,26 +104,19 @@ body {
     align-items: center;
     width: 250px;
     transition: 0.5s;
-    margin: 10px 65px;
-    margin-top: 35px;
+    margin: 20px 0px 10px 0px;
+    cursor: pointer;
 }
 .login-formButton:hover {
     opacity: 0.6;
 }
-.forgotPassword {
+.login-form-subText {
     font-size: 12px;
-    margin: 0 120px;
     color: #009fff;
 }
-.forgotPassword:hover {
+.login-form-subText:hover {
     opacity: 0.6;
 }
-.administratorLogin:hover {
-    opacity: 0.6;
+.error_message {
+    font-size: 15px;
 }
-.administratorLogin {
-    font-size: 12px;
-    margin: 10px 140px;
-    color: #009fff;
-}
-

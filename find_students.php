@@ -1,29 +1,14 @@
+<?php require_once "functions.php"; ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/lib/reset.css">
-    <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/css/classPage class member.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Class Community--Class Page classmember</title>
+    <?php include "parts/head.php"; ?>
+    <link rel="stylesheet" href="<?= $url; ?>assets/css/find-students.css">
+    <title>Class Community--find students</title>
 </head>
-<header>
-<div class="subHeader">
-    <h2 class="subHeader__heading">Class Community</h2>
-    <div class="subheaderList">
-        <a href="" class="" style="text-decoration: underline"><i class="fa-solid fa-right-from-bracket"></i>ログアウト</a>
-    </div>
-    <nav>
-        <button class="menu-toggle">
-        <div></div>
-        <div></div>
-        <div></div>
-        </button>
-        </nav>
-</div>
-</header>
+<body>
+<?php include "parts/header.php"; ?>
 <div class="container">
     <aside>
         <div class="mainMenu">
@@ -79,10 +64,10 @@
                     <option value="">6-7</option>
                 </select>
                 <div class="listMenu__buttonLayout">
-                    <button type="submit" class="listMenu__button"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a></button>
+                    <button type="submit" class="listMenu__button"><a href="" class=""><i class="fa-solid fa-magnifying-glass"></i>探す</a></input>
                 </div>
                 <div class="listMenu__buttonLayout2">
-                    <button type="submit" class="listMenu__button listMenu__button--classStudent"><i class="fas fa-user"></i><a href="/find students.html" class="">生徒を探す</a></button>
+                    <button type="submit" class="listMenu__button listMenu__button--classStudent"><i class="fas fa-user"></i><a href="" class="">生徒を探す</a></input>
                 </div>
             </div>
             <div class="listMenu__item">
@@ -94,29 +79,11 @@
         </div>
     </aside>
     <main class="main">
-        <div class="classTitle">
-            <h2 class="classTitleName">中等2年4組</h2>
-            <h2 class="classTitleName2">@F棟302教室</h2>
-        </div>
-        <div class="classMenu">
-            <div class="listClass__button1 classMember">
-<<<<<<< HEAD
-                <button type="submit" class="listClassMenu__button listClassMenu__button--classMember"><i class="fa-solid fa-user-group"></i><a href="" class="">クラスメンバー</a></button>
-=======
-                <button type="button" class="listClassMenu__button listClassMenu__button--classMember"><i class="fa-solid fa-user-group"></i><a href="" class="">クラスメンバー</a></button>
->>>>>>> dd6037e454a3dc8a8ff335aba08a3e2b77d4916d
-            </div>
-            <div class="listClass__button1">
-                <button type="submit" class="listClassMenu__button listClassMenu__button--wacthPicture"><i class="fa-regular fa-images"></i><a href="" class="">最近のクラス写真</a></button>
-            </div>
-            <div class="listClass__button1">
-                <button type="submit" class="listClassMenu__button listClassMenu__button--learningRecords"><i class="fa-solid fa-clipboard"></i><a href="" class="">クラスの学習記録</a></button>
-            </div>
-        </div>
-        <div class="classMember">
+        <div class="find-student">
+            <input type="text" class="searchBox" placeholder="キーワードを入力"></input>
+            <button type="submit" class="listMenu__button listMenu__button--find-student"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a></button>
         </div>
     </main>
 </div>
-<body>
 </body>
 </html>

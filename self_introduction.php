@@ -1,22 +1,13 @@
+<?php require_once "functions.php"; ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/lib/reset.css">
-    <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/css/self-introduction.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<?php include "parts/head.php"; ?>
+    <link rel="stylesheet" href="<?= $url; ?>assets/css/self-introduction.css">
     <title>Class Community--Self-Introduction</title>
 </head>
-<header>
-    <div class="subHeader">
-        <h2 class="subHeader__heading">Class Community</h2>
-        <div class="subheaderList">
-            <a href="" class="" style="text-decoration: underline"><i class="fa-solid fa-right-from-bracket"></i>ログアウト</a>
-        </div>
-    </div>
-    </header>
+<body>
+<?php include "parts/header.php"; ?>
     <div class="container">
         <aside>
             <div class="mainMenu">
@@ -108,7 +99,5 @@
                 </div>
             </div>
         </main>
-<body>
-    
 </body>
 </html>

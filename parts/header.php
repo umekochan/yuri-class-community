@@ -8,5 +8,6 @@
         <div></div>
         </button>
         </nav>
-</div>
+    <a href="<?= $url; ?>logout.php" class="subHeader__heading__logout">ログアウト</a>
 </header>
+</div>

@@ -22,6 +22,7 @@ body {
     color:aliceblue;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #009fff;
     padding: 15px 15px;
     font-weight: bolder;
@@ -33,6 +34,15 @@ body {
     margin-left: 1150px;
 }
 .subheaderList:hover {
+    opacity: 0.6;
+}
+.subHeader__heading__logout {
+    font-size: 15px;
+    border-bottom: 2px solid #ffffff;
+    opacity: 1;
+    transition: 0.5s;
+}
+.subHeader__heading__logout:hover {
     opacity: 0.6;
 }
 .button{
