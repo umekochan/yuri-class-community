@@ -1,39 +1,54 @@
 /*main*/
+.main__contents {
+    width: 60%;
+}
+.mainTitle {
+    background-color: #f1f0f0;
+    padding: 20px;
+    width: 100%;
+}
 .mainTitle__h1 {
     font-size: 30px;
-    padding: 20px 40px 0 330px;
-    color: #fcfcffcf;
-    opacity: 3.0;
     width: 100%;
     font-family: OCRB;
-    text-shadow: #0d0d0c 1px 0 10px;
+    font-weight: bold;
+}
+.mainTitle__ul {
+    margin-top: 20px;
 }
 .mainTitle__li {
-    padding: 10px 45px 20px 250px;
-    opacity: 3.0;
-    font-size: 22px;
-    color: #efeef2cf;
+    font-size: 18px;
     font-family: OCRB;
-    text-shadow: #0d0d0c 1px 0 10px;
 }
-main {
-    background-image: url('../../image/schoolPageImage.png');
+.main {
     background-size: cover;
     width: 100%;
+    display: flex;
 }
-.main__map {
-    padding: 9px 0 0 50px;
+.main__image {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.mainTitle__a {
-    padding: 10px 70px 20px 250px;
-    opacity: 3.0;
-    font-size: 22px;
+.mainVisual {
+    width: 80%;
+}
+.mainMap {
+    height:calc(100% - 187.2px);
+    width: 100%;
+}
+.mainMap__frame {
+    width: 100%;
+    height: 100%;
+}
+
+.mainTitle__link {
+    font-size: 18px;
     color: #2536f5;
     font-family: OCRB;
-    transition: background-color 0.5s;
-    margin-left: 30px;
-    text-shadow: #9797de 1px 0 10px;
+    transition: 0.5s;
 }
-.mainTitle__a:hover {
+.mainTitle__link:hover {
     opacity: 0.6;
 }

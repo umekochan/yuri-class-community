@@ -1,6 +1,6 @@
 <header>
 <div class="subHeader">
-    <h2 class="subHeader__heading">Class Community</h2>
+    <button type="button"><a href="schoolpage.php" class="subHeader__heading">Class Community</a></button>
     <nav>
         <button class="menu-toggle">
         <div></div>

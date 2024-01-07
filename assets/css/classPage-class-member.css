@@ -36,11 +36,14 @@
     width: 170px;
     transition: 0.5s;
 }
+.classWraper {
+    display: flex;
+}
 .classMenu {
     border-right: 1px solid #c4bcbc;
     width: 220px;
     height: 100vh;
-    padding-top: 20px
+    padding-top: 20px;
 }
 .listClass__button1 {
     margin-top: 25px;
@@ -70,4 +73,8 @@
 }
 .classMember {
     opacity: 0.6;
+}
+.class_member__message {
+    font-size: 15px;
+    padding: 40px 20px;
 }

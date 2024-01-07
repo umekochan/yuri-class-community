@@ -1,4 +1,33 @@
-<?php require_once "functions.php"; ?>
+<?php require_once "functions.php"; 
+$student_id = $_SESSION["id"];
+//db接続情報
+$db_name = "mysql:host=localhost; dbname=class_community;";
+$db_username = "root";
+$db_password = "";
+
+//db接続
+try {
+    $db = new PDO($db_name, $db_username, $db_password);
+} catch ( PDOException $e) {
+    //エラー処理
+    $msg = $e->getMessage();
+    echo "DB接続エラー__Error";
+    echo $msg;
+    exit;
+}
+//SQL文の定義
+if(!empty($_POST["profile"])) {
+    $sql = "UPDATE login SET profile = :profile WHERE id = :id";
+    //SQLステートメントの準備
+    $statement = $db->prepare($sql);
+    $statement->bindValue(':id', $student_id);
+    $statement->bindValue(':profile', $_POST["profile"]);
+    //SQL実行
+    $statement->execute();
+    header("Location:{$url}classPage_class_member.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -86,7 +115,7 @@
 ＊このページはあなたのクラスページの中にあるクラスメンバーという項目に投稿されます。<br>
 ＊このページを投稿することによって学校内で新たなコミュニティを作ることができます。</p>
                     <form class="mainTitle__textrareaForm" method="post" action="">
-                    <textarea class="mainTitle__textrarea"  id="" name="otoiawase" rows="12" cols="50" required>
+                    <textarea class="mainTitle__textrarea"  id="" name="profile" rows="12" cols="50" required>
                     </textarea>
                     <div class="listMenu__buttonLayout4">
                     <button type="submit" class="listMenu__button listMenu__button--class"><i class="fa-solid fa-plus"></i>クラスページに投稿</button>
