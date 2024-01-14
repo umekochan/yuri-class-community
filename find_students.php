@@ -74,7 +74,7 @@
                 <button type="submit" class="listMenu__button listMenu__button--class"><i class="fas fa-user-pen"></i><a href="" class="">クラスページを編集</a></button>
             </div>
             <div class="listMenu__buttonLayout3">
-                <button type="submit" class="listMenu__button listMenu__button--community"><i class="fas fa-users"></i><a href="" class="">コミュニティ</a></button>
+                <button type="submit" class="listMenu__button listMenu__button--community"><i class="fas fa-users"></i><a href="community.php" class="">コミュニティ</a></button>
             </div>
         </div>
     </aside>

@@ -1,0 +1,74 @@
+body {
+    background-color: rgb(187,181,181,20%);
+}
+aside {
+    background-color: white;
+}
+.main {
+    width: 100%;
+}
+.listMenu__button--community {
+    opacity: 0.6;
+}
+.contribtion-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+.contribtion {
+    background-color: white;
+    width: 45%;
+    padding: 50px;
+    border-radius: 10px;
+}
+.contribtion-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+.contribtion-class {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.contribtion-contents-message {
+    font-size: 13px;
+    font-weight: bold;
+}
+.contribtion-contents-textrarea {
+    border: 1px solid #e0bfbf;
+    font-size: 16px;
+    border-radius: 6px;
+    padding: 15px;
+    word-break: break-all;
+    margin-bottom: 15px;
+}
+.contribtion-link {
+    color: red;
+    font-size: 13px;
+    margin-top: 10px;
+}
+.main-lists {
+    border-top: 1px solid #c4bcbc;
+}
+.search-thread {
+    padding: 0 140px;
+}
+.search-input {
+    padding: 10px 330px;
+    width: 80%;
+}
+.search-box {
+    border: 1px solid #e0bfbf;
+    font-size: 20px;
+    border-radius: 30px;
+    word-break: break-all;
+    padding: 3px 10px;
+}
+.search-button {
+    padding: 10px 80px;
+}
+.threads-message {
+    font-size: 25px;
+    padding: 50px 500px;
+}

@@ -1,38 +1,11 @@
-<?php require_once "functions.php";
-$student_id = $_SESSION["id"];
-//db接続情報
-$db_name = "mysql:host=localhost; dbname=class_community;";
-$db_username = "root";
-$db_password = "";
-
-//db接続
-try {
-    $db = new PDO($db_name, $db_username, $db_password);
-} catch ( PDOException $e) {
-    //エラー処理
-    $msg = $e->getMessage();
-    echo "DB接続エラー__Error";
-    echo $msg;
-    exit;
-}
-//SQL文の定義
-$sql = "SELECT * FROM login WHERE id = :id";
-//SQLステートメントの準備
-$statement = $db->prepare($sql);
-$statement->bindValue(':id', $student_id);
-//SQL実行
-$statement->execute();
-//結果の取得
-$result = $statement->fetch();
-if( !$result ) {
-    return;
-}
-?>
+<?php require_once "functions.php"; ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<?php include "parts/head.php"; ?>
-    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage-class-member.css">
+    <?php include "parts/head.php"; ?>
+    <link rel="stylesheet" href="<?= $url; ?>assets/css/community.css">
+    <link rel="stylesheet" href="<?= $url; ?>assets/css/community-post.css">
+    <title>Class Community--community-page</title>
 </head>
 <body>
 <?php include "parts/header.php"; ?>
@@ -52,7 +25,6 @@ if( !$result ) {
                     <option value="">1-5</option>
                     <option value="">1-6</option>
                     <option value="">1-7</option>
-                    <option value="">1-8</option>
                     <option value="">2-1</option>
                     <option value="">2-2</option>
                     <option value="">2-3</option>
@@ -91,10 +63,10 @@ if( !$result ) {
                     <option value="">6-7</option>
                 </select>
                 <div class="listMenu__buttonLayout">
-                    <button type="button" class="listMenu__button"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a></button>
+                    <button type="button" class="listMenu__button"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a></input>
                 </div>
                 <div class="listMenu__buttonLayout2">
-                    <button type="button" class="listMenu__button listMenu__button--classStudent"><i class="fas fa-user"></i><a href="find_students.php" class="">生徒を探す</a></button>
+                    <button type="button" class="listMenu__button listMenu__button--classStudent"><i class="fas fa-user"></i><a href="find_students.php" class="">生徒を探す</a></input>
                 </div>
             </div>
             <div class="listMenu__item">
@@ -106,29 +78,23 @@ if( !$result ) {
         </div>
     </aside>
     <main class="main">
-        <div class="classTitle">
-            <h2 class="classTitleName">中等2年4組</h2>
-            <h2 class="classTitleName2">@F棟302教室</h2>
-        </div>
-        <div class="classWraper">
-        <div class="classMenu">
-            <div class="listClass__button1 classMember">
-                <button type="button" class="listClassMenu__button listClassMenu__button--classMember"><i class="fa-solid fa-user-group"></i><a href="" class="">クラスメンバー</a></button>
+        <form action="" method="post">
+            <div class="contribtion-wrapper-write">
+                <div class="contribtion-write">
+                    <div class="contribtion-write-name-class">
+                        <div class="contribtion-write-name">榎本悠里</div>
+                        <div class="contribtion-write-class">22期4組</div>
+                    </div>
+                    <div class="contribtion-contents">
+                        <p class="contribtion-contents-message">＊質問する内容をここに書いて下さい</p>
+                        <textarea class="contribtion-contents-textrarea"  id="" name="" rows="21" cols="70"></textarea>
+                    </div>
+                    <div class="contribtion-write-button"><button type="button" class="listMenu__button contribtion-back-button"><i class="fa-solid fa-backward"></i><a href="community.php" class="">  戻る</a></button>
+                    </div>
+                </div>
             </div>
-            <div class="listClass__button1">
-                <button type="button" class="listClassMenu__button listClassMenu__button--wacthPicture"><i class="fa-regular fa-images"></i><a href="" class="">最近のクラス写真</a></button>
-            </div>
-            <div class="listClass__button1">
-                <button type="button" class="listClassMenu__button listClassMenu__button--learningRecords"><i class="fa-solid fa-clipboard"></i><a href="" class="">クラスの学習記録</a></button>
-            </div>
-        </div>
-        <div class="class_member">
-            <div class="class_member__message">
-                <?= $result["profile"]; ?>
-            </div>
-        </div>
-        </div>
+        </form>
     </main>
-</div>
 </body>
 </html>
+            

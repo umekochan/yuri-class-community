@@ -1,0 +1,36 @@
+.contribtion-wrapper-write {
+    display: flex;
+    justify-content: center;
+    padding-top: 2px;
+}
+.contribtion-write {
+    width: 60%;
+    background-color: white;
+}
+.contribtion-write-name-class {
+    margin: 15px;
+}
+.contribtion-write-name {
+    font-size: 40px;
+    font-weight: bold;
+    
+}
+.contribtion-write-class {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    margin-top: 10px;
+}
+.contribtion-contents-message {
+    font-size: 15px;
+    font-weight: bold;
+}
+.contribtion-contents {
+    margin: 0 60px;
+}
+.contribtion-back-button {
+    font-size: 15px;
+}
+.contribtion-write-button {
+    margin: 8px;
+}

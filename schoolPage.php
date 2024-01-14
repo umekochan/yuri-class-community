@@ -64,14 +64,14 @@
                     <button type="button" class="listMenu__button"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a></input>
                 </div>
                 <div class="listMenu__buttonLayout2">
-                    <button type="button" class="listMenu__button listMenu__button--classStudent"><i class="fas fa-user"></i><a href="/find students.html" class="">生徒を探す</a></input>
+                    <button type="button" class="listMenu__button listMenu__button--classStudent"><i class="fas fa-user"></i><a href="find_students.php" class="">生徒を探す</a></input>
                 </div>
             </div>
             <div class="listMenu__item">
                 <button type="button" class="listMenu__button listMenu__button--class"><i class="fas fa-user-pen"></i><a href="" class="">クラスページを編集</a></button>
             </div>
             <div class="listMenu__buttonLayout3">
-                <button type="button" class="listMenu__button listMenu__button--community"><i class="fas fa-users"></i><a href="" class="">コミュニティ</a></button>
+                <button type="button" class="listMenu__button listMenu__button--community"><i class="fas fa-users"></i><a href="community.php" class="">コミュニティ</a></button>
             </div>
         </div>
     </aside>

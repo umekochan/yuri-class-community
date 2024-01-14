@@ -66,7 +66,7 @@
                         <button type="submit" class="listMenu__button"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a></button>
                     </div>
                     <div class="listMenu__buttonLayout2">
-                        <button type="submit" class="listMenu__button listMenu__button--classStudent" ><i class="fas fa-user"></i><a href="/find students.html" class="">生徒を探す</a></button>
+                        <button type="submit" class="listMenu__button listMenu__button--classStudent" ><i class="fas fa-user"></i><a href="" class="">生徒を探す</a></button>
                     </div>
                 </div>
                 <div class="listMenu__item">
