@@ -63,10 +63,13 @@ aside {
 }
 .search-box {
     border: 1px solid #e0bfbf;
-    font-size: 20px;
+    font-size: 21px;
     border-radius: 30px;
     word-break: break-all;
-    padding: 3px 10px;
+    padding: 7px 15px;
+}
+.search-box::placeholder {
+    color: #999696;
 }
 .search-button {
     padding: 10px 80px;

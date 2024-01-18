@@ -27,6 +27,7 @@
 }
 .contribtion-contents {
     margin: 0 60px;
+    border-radius: 6px;
 }
 .contribtion-back-button {
     font-size: 15px;
