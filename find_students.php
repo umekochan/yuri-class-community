@@ -82,6 +82,7 @@
         <div class="find-student">
             <input type="text" class="searchBox" placeholder="キーワードを入力"></input>
             <button type="submit" class="listMenu__button listMenu__button--find-student"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a></button>
+            <p class="find-student-message">生徒はいません</p>
         </div>
     </main>
 </div>

@@ -43,8 +43,11 @@ aside {
     word-break: break-all;
     margin-bottom: 15px;
 }
+.contribtion-button {
+    padding: 10px 0;
+}
 .contribtion-link {
-    color: red;
+    color: #009fff;
     font-size: 13px;
     margin-top: 10px;
 }

@@ -23,3 +23,6 @@
 .listMenu__button--find-student:hover {
     opacity: 0.6;
 }
+.find-student-message {
+    padding: 50px 500px;
+}

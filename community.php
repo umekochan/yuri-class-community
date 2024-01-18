@@ -87,7 +87,9 @@
                         <textarea class="contribtion-contents-textrarea"  id="" name="" rows="3" cols="50" ></textarea>
                     </div>
                     <a href="community-post.php" class="contribtion-link" style="text-decoration: underline">投稿内容を書く</a>
-                    <button type="submit" class="listMenu__button contribtion-button"><i class="fa-solid fa-pen-to-square"></i>投稿する</button>
+                    <div class="contribtion-button">
+                        <button type="submit" class="listMenu__button list-contribtion-button"><i class="fa-solid fa-pen-to-square"></i>投稿する</button>
+                    </div>
                 </div>
             </div>
         </form>
