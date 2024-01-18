@@ -96,7 +96,9 @@
             <div class="main-lists">
                 <div class="search-thread">
                     <div class="search-input">
-                        <input type="text" class="search-box" placeholder="スレッドを検索する"></input>
+                        <div class="search-input-box">
+                            <input type="text" size="40"class="search-box" placeholder="スレッドを検索する"></input>
+                        </div>
                         <div class="search-button">
                             <button type="submit" class="listMenu__button list-search-button"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a>
                         </button>

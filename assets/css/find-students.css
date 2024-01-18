@@ -5,15 +5,23 @@
     width: 100%;
     background-color: rgb(187 181 181 / 20%);
 }
+.find-student-input {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+}
 .searchBox {
-    border: 1px solid #b9b3b3;
+    border: 1px solid #e0bfbf;
     font-size: 17px;
-    padding: 5px;
-    margin-left: 150px;
-    margin-top: 40px;
     border-radius: 20px;
-    width: 60%;
-    background-color: #e2cbcb47;
+    word-break: break-all;
+    padding: 7px 20px;
+}
+.searchBox::placeholder {
+    color: #999696;
+}
+.find-student-box {
+    padding: 0 400px 50px 0;
 }
 .listMenu__button--find-student {
     margin-left: 450px;
@@ -23,6 +31,10 @@
 .listMenu__button--find-student:hover {
     opacity: 0.6;
 }
+.students {
+    border-top: 1px solid #e0bfbf;
+}
 .find-student-message {
-    padding: 50px 500px;
+    padding: 50px 420px;
+    font-size: 25px;
 }

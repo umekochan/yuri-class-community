@@ -58,23 +58,30 @@ aside {
     padding: 0 140px;
 }
 .search-input {
-    padding: 10px 330px;
-    width: 80%;
+    padding: 10px 230px;
+}
+.search-input-box {
+    display: flex;
+    justify-content: center;
 }
 .search-box {
     border: 1px solid #e0bfbf;
-    font-size: 21px;
-    border-radius: 30px;
+    font-size: 17px;
+    border-radius: 20px;
     word-break: break-all;
-    padding: 7px 15px;
+    padding: 7px 20px;
 }
 .search-box::placeholder {
     color: #999696;
 }
 .search-button {
     padding: 10px 80px;
+    display: flex;
+    justify-content: center;
 }
 .threads-message {
     font-size: 25px;
     padding: 50px 500px;
+    display: flex;
+    justify-content: center;
 }

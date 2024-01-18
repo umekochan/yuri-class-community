@@ -79,10 +79,18 @@
         </div>
     </aside>
     <main class="main">
-        <div class="find-student">
-            <input type="text" class="searchBox" placeholder="キーワードを入力"></input>
-            <button type="submit" class="listMenu__button listMenu__button--find-student"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a></button>
-            <p class="find-student-message">生徒はいません</p>
+        <form action="" method="post">
+            <div class="find-student">
+                <div class="find-student-input">
+                    <input type="text" size="85" class="searchBox" placeholder="キーワードを入力"></input>
+                </div>
+                <div class="find-student-box">
+                    <button type="submit" class="listMenu__button listMenu__button--find-student"><i class="fa-solid fa-magnifying-glass"></i><a href="" class="">探す</a></button>
+            </div>
+        </div>
+        </form>
+        <div class="students">
+        <p class="find-student-message">生徒はいません</p>
         </div>
     </main>
 </div>
