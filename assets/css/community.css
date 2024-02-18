@@ -46,6 +46,12 @@ aside {
 .contribtion-button {
     padding: 10px 0;
 }
+.delate {
+    display: none;
+}
+.back-button {
+    margin-top: 20px;
+}
 .contribtion-link {
     color: #009fff;
     font-size: 13px;
@@ -79,9 +85,98 @@ aside {
     display: flex;
     justify-content: center;
 }
+.search_maessage { 
+    text-align: center;
+    font-size: 20px;
+}
 .threads-message {
     font-size: 25px;
     padding: 50px 500px;
     display: flex;
     justify-content: center;
+}
+.threads {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 calc(10%/2);
+    padding-top: 30px;
+    align-items: center;
+}
+.thread {
+    border: 1px solid #e0bfbf;
+    background-color: white;
+    width: 45%;
+    min-width: 364px;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.user {
+    font-size: 10px ;
+    margin-bottom: 7px;
+    color: #009fff;
+}
+.date {
+    font-size: 10px;
+    margin-bottom: 7px;
+}
+.title {
+    font-size: 15px;
+}
+.text {
+    font-size: 15px;
+}
+.thread_message {
+    font-size: 10px;
+    margin-top: 10px;
+    color: #009fff;
+}
+.send_message_button {
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+.replay_message {
+    border-radius: 10px;
+    border: 1px solid #e0bfbf;
+    font-size: 10px;
+    padding: 10px;
+    word-break: break-all;
+}
+.replay_comments {
+    border-top: 1px solid #e0bfbf;
+    font-size: 10px;
+}
+.replay_comments_display_button {
+    padding-top: 10px;
+}
+.delate_message_button {
+    font-size: 10px;
+    width: 130px;
+}
+
+.replay_comments_hide {
+    height: 0;
+    overflow: hidden;
+}
+.replay_comments_hide.open {
+    overflow: auto;
+    height: auto;
+}
+.replay_comment {
+    border-bottom: 1px solid #e0bfbf;
+}
+.replay_comment_name {
+    color: #009fff;
+}
+.replay_comment_text {
+    font-size: 15px;
+}
+.replay_comment_date {
+    padding-top: 10px;
+}
+.display_message_button {
+    width: fit-content;
+    font-size: 10px;
+    padding: 5px 10px;
 }

@@ -31,10 +31,55 @@
 .listMenu__button--find-student:hover {
     opacity: 0.6;
 }
-.students {
+.menu_wraper {
     border-top: 1px solid #e0bfbf;
+    font-size: 20px;
+    width: 100%;
 }
-.find-student-message {
-    padding: 50px 420px;
-    font-size: 25px;
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(187 181 181 / 20%);;
+}
+.grade {
+    margin: 0 70px;
+}
+.class {
+    margin: 0 70px;
+}
+.name {
+    margin: 0 70px;
+}
+.introduce {
+    margin: 0 140px;
+}
+.top {
+    font-weight: bold;
+    
+}
+.student {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #e0bfbf;
+    border-bottom: 1px solid #e0bfbf;
+}
+.s_grade {
+    margin: 0 60px;
+    margin-right: 94px;
+    width: 40px;
+}
+.s_class {
+    margin: 0 50px;
+    margin-left: 40px;
+    width: 40px;
+}
+.s_name {
+    margin: 0 50px;
+    margin-left: 112px;
+    width: 100px;
+    color: #009fff;
+}
+.s_introduce {
+    margin: 0 50px;
+    width: 220px;
 }

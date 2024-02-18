@@ -7,6 +7,9 @@ body {
     font-weight: bold;
     padding: 7px 7px;
 }
+.delate {
+    display: none !important;
+}
 /* main*/
 .main {
     display: flex;
@@ -17,10 +20,11 @@ body {
 .login-pageTitle {
     padding: 20px;
     margin-left: 30px;
-    margin-top: 15px;
+    margin-top: 50px;
 }
 .login-pageTitle-h2 {
     font-size: 40px;
+    padding-top: 30px;
     color: #3c3838;
     text-shadow: 3px 3px 10px rgba(38, 41, 67, 0.3);
     font-weight: bolder;

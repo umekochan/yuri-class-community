@@ -74,7 +74,24 @@
 .classMember {
     opacity: 0.6;
 }
+.class_member {
+    border-bottom: 1px solid #e0bfbf;
+    width: 100%;
+}
+.class_member_name {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 40px;
+}
+.class_member_introduce {
+    font-size: 20px;
+    margin-top: -10px;
+}
 .class_member__message {
     font-size: 15px;
-    padding: 40px 20px;
+    padding: 0 40px 20px 40px;
 }
+.class_member2 {
+    border-top: 1px solid #e0bfbf;
+}
+

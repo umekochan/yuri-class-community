@@ -14,5 +14,6 @@ body {
 .logout_message {
     font-weight: bold;
     font-size: 60px;
+    margin-top: 50px;
     padding: 50px 50px;
 }

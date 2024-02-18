@@ -6,6 +6,7 @@
 .contribtion-write {
     width: 60%;
     background-color: white;
+    border-radius: 6px;
 }
 .contribtion-write-name-class {
     margin: 15px;
@@ -27,7 +28,6 @@
 }
 .contribtion-contents {
     margin: 0 60px;
-    border-radius: 6px;
 }
 .contribtion-back-button {
     font-size: 15px;

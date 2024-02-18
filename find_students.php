@@ -1,4 +1,54 @@
 <?php require_once "functions.php"; ?>
+<?php 
+    $db = get_db();
+
+    if(!empty($_POST["subject"])) {
+        $set_post_sql = "insert into community_posts(user_id, subject, text, create_date)
+        values (:user_id, :subject, :text, now() )";
+        $param = [":user_id"=> $_SESSION["id"], ":subject"=> $_POST["subject"], ":text"=> $_POST["text"],":create_date"=> $_SESSION["create_date"]];
+        $statement = $db->prepare($set_post_sql);
+        $statement->execute($param);
+    }
+    $get_post_sql = "select * from community_posts order by create_date desc";
+    $statement = $db->query($get_post_sql);
+    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+    
+    $get_user_sql = "select id, name from login";
+    $statement = $db->query($get_user_sql);
+    $users_db = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $users = array_column($users_db,"name","id");
+
+    $student_id = $_SESSION["id"];
+    //db接続情報
+    $db_name = "mysql:host=localhost; dbname=class_community;";
+    $db_username = "root";
+    $db_password = "";
+    
+    //db接続
+    try {
+        $db = new PDO($db_name, $db_username, $db_password);
+    } catch ( PDOException $e) {
+        //エラー処理
+        $msg = $e->getMessage();
+        echo "DB接続エラー__Error";
+        echo $msg;
+        exit;
+    }
+    //SQL文の定義
+    $sql = "SELECT * FROM login WHERE id = :id";
+    //SQLステートメントの準備
+    $statement = $db->prepare($sql);
+    $statement->bindValue(':id', $student_id);
+    //SQL実行
+    $statement->execute();
+    //結果の取得
+    $result = $statement->fetch();
+    if( !$result ) {
+        return;
+    }
+
+    global $login_user;
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,72 +61,7 @@
 <?php include "parts/header.php"; ?>
 <div class="container">
     <aside>
-        <div class="mainMenu">
-            <h2 class="listMenu__title1">桐蔭学園中等教育学校</h2>
-            <p class="listMenu__title3">榎本悠里<br> 2年4組 ７番</p>
-            <div class="listMenu__item">
-                <h2 class="listMenu__title2">クラス名</h2>
-                <select name="" id="" class="listMenu__classSelect">
-                    <option value="">クラスを選択してください</option>
-                    <option value="">1-1</option>
-                    <option value="">1-2</option>
-                    <option value="">1-3</option>
-                    <option value="">1-4</option>
-                    <option value="">1-5</option>
-                    <option value="">1-6</option>
-                    <option value="">1-7</option>
-                    <option value="">1-8</option>
-                    <option value="">2-1</option>
-                    <option value="">2-2</option>
-                    <option value="">2-3</option>
-                    <option value="">2-4</option>
-                    <option value="">2-5</option>
-                    <option value="">2-6</option>
-                    <option value="">2-7</option>
-                    <option value="">3-1</option>
-                    <option value="">3-2</option>
-                    <option value="">3-3</option>
-                    <option value="">3-4</option>
-                    <option value="">3-5</option>
-                    <option value="">3-6</option>
-                    <option value="">3-7</option>
-                    <option value="">4-1</option>
-                    <option value="">4-2</option>
-                    <option value="">4-3</option>
-                    <option value="">4-4</option>
-                    <option value="">4-5</option>
-                    <option value="">4-6</option>
-                    <option value="">4-7</option>
-                    <option value="">5-1</option>
-                    <option value="">5-2</option>
-                    <option value="">5-3</option>
-                    <option value="">5-4</option>
-                    <option value="">5-5</option>
-                    <option value="">5-5</option>
-                    <option value="">5-6</option>
-                    <option value="">5-7</option>
-                    <option value="">6-1</option>
-                    <option value="">6-2</option>
-                    <option value="">6-3</option>
-                    <option value="">6-4</option>
-                    <option value="">6-5</option>
-                    <option value="">6-6</option>
-                    <option value="">6-7</option>
-                </select>
-                <div class="listMenu__buttonLayout">
-                    <button type="submit" class="listMenu__button"><a href="" class=""><i class="fa-solid fa-magnifying-glass"></i>探す</a></input>
-                </div>
-                <div class="listMenu__buttonLayout2">
-                    <button type="submit" class="listMenu__button listMenu__button--classStudent"><i class="fas fa-user"></i><a href="" class="">生徒を探す</a></input>
-                </div>
-            </div>
-            <div class="listMenu__item">
-                <button type="submit" class="listMenu__button listMenu__button--class"><i class="fas fa-user-pen"></i><a href="" class="">クラスページを編集</a></button>
-            </div>
-            <div class="listMenu__buttonLayout3">
-                <button type="submit" class="listMenu__button listMenu__button--community"><i class="fas fa-users"></i><a href="community.php" class="">コミュニティ</a></button>
-            </div>
-        </div>
+        <?php include "parts/aside.php"; ?>
     </aside>
     <main class="main">
         <form action="" method="post">
@@ -89,8 +74,35 @@
             </div>
         </div>
         </form>
-        <div class="students">
-        <p class="find-student-message">生徒はいません</p>
+        <div class="menu_wraper">
+            <div class="menu">
+                <div class="grade">
+                    <div class="top menu_grade">学年</div>
+                </div>
+                <div class="class">
+                    <div class="top menu_class">クラス</div>
+                </div>
+                <div class="name">
+                    <div class="top menu_name">名前</div>
+                </div>
+                <div class="introduce">
+                    <div class="top menu_introduce">自己紹介</div>
+                </div>
+            </div>
+            <div class="student">
+                <div class="s_grade">
+                    <div class="student_grade">２年</div>
+                </div>
+                <div class="s_class">
+                    <div class="student_class">４組</div>
+                </div>
+                <div class="s_name">
+                    <a href="classpage_class_member.php" class="student_name" style="text-decoration: underline"><?php echo $login_user["name"]; ?></a>
+                </div>
+                <div class="s_introduce">
+                    <div class="student_introduce"><?= $result["profile"]; ?></div>
+                </div>
+            </div>
         </div>
     </main>
 </div>

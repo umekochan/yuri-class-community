@@ -11,6 +11,7 @@ body {
 }
 .container {
     display: flex;
+    margin-top: 61px;
 }
 .aside {
     width: 220px;
@@ -30,6 +31,9 @@ header {
     font-weight: bolder;
     box-shadow: 3px 3px 10px rgba(39,51,145, .3);
     text-shadow: 3px 3px 10px rgba(38, 41, 67, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .subheaderList {
     font-size: 10px;
