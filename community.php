@@ -23,11 +23,12 @@
     $statement = $db->query($get_post_sql);
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     
-    $get_user_sql = "select id, name from login";
+    $get_user_sql = "select login.id, name, class_number,grade_number from login inner join class on class.id = class_id inner join grade on grade.id = grade_id";
     $statement = $db->query($get_user_sql);
     $users_db = $statement->fetchAll(PDO::FETCH_ASSOC);
     $users = array_column($users_db,"name","id");
-
+    $class_users = array_column($users_db,"class_number","id");
+    $grade_users = array_column($users_db,"grade_number","id");
     function get_replay($post_id) {
         $db = get_db();
         $get_replay_sql = "select * from community_replays where post_id = :post_id order by create_date desc";
@@ -94,7 +95,7 @@
                         <?php foreach($posts as $post): ?> 
                         <div class="thread">
                             <div class="thread_user_name">
-                                <a href="find_students.php" class="user" style="text-decoration: underline"><p class=""><?php echo $users[$post["user_id"]]; ?></p></a>
+                                <a href="find_students.php" class="user" style="text-decoration: underline"><p class=""><?php echo $grade_users[$post["user_id"]]; ?>年<?php echo $class_users[$post["user_id"]]; ?>組<?php echo $users[$post["user_id"]]; ?></p></a>
                             </div>
                             <div class="thread_create_date">
                                 <p class="date"><?php echo $post["create_date"]; ?></p>
@@ -107,6 +108,7 @@
                             </div>
                             <div class="replay_wrapper">
                                 <form action="" method="post" class="replay_form">
+                                    <p class="comment_message">コメントを書く：</p>
                                     <textarea name="replay_message" class="replay_message" id="" cols="70" rows="2" required></textarea>
                                     <input type="hidden" class="" name="post_id" value="<?php echo $post["id"]; ?>">
                                     <button type="submit" class="listMenu__button send_message_button">コメントを送信</button>
@@ -156,8 +158,6 @@
     function replay_button_click(event) {
         let replay_message_hide = event.target.closest(".replay_comments").querySelector(".replay_comments_hide");
         let replay_delate_button = event.target.closest(".replay_comments").querySelector(".delate_message_button.delate");
-        console.log(replay_message_hide);
-        console.log(replay_delate_button);
         replay_delate_button.classList.remove("delate");
         replay_delate_button.classList.add("open");
         event.target.classList.remove("open");
@@ -175,13 +175,12 @@
         event.target.classList.add("delate");
         replay_open_button.classList.remove("delate");
         replay_open_button.classList.add("open");
-        console.log(replay_open_button);
     }
     replay_button.forEach(function(element){
         element.addEventListener("click",replay_button_click);
     }); 
     replay_comments_delate.forEach(function(element){
-        relement.addEventListener("click",replay_comments_delate_click);
+        element.addEventListener("click",replay_comments_delate_click);
     }); 
     
 </script>

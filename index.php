@@ -1,17 +1,9 @@
 <?php require_once "functions.php"; 
+$error_password_message = "";
 if( !empty($_POST["password"])&& !empty($_POST["email"])) {
     $error_message = "";
     $email = $_POST["email"];
     $password = $_POST["password"];
-    //パスワードの入力チェック
-    if( empty($password) ) {
-        $error_message .= "パスワードが入力されていません";
-        return;
-    }
-    if( empty($email) ) {
-        echo "メールアドレスが入力されていません";
-        return;
-    }
     //db接続情報
     $db_name = "mysql:host=localhost; dbname=class_community;";
     $db_username = "root";
@@ -38,9 +30,7 @@ if( !empty($_POST["password"])&& !empty($_POST["email"])) {
     $result = $statement->fetch();
     if( !$result ) {
         $error_message .= "無効なユーザーです";
-        return;
     }
-
     //パスワードが一致するか
     if ( $_POST['password'] === $result['password'] ) {
         $_SESSION["id"] = $result["id"];
@@ -48,7 +38,7 @@ if( !empty($_POST["password"])&& !empty($_POST["email"])) {
         header("Location:{$url}schoolpage.php");
         exit;
     } else {
-        echo '<p>パスワードが間違っています。</p>';
+        $error_password_message = "パスワードが一致しません";
     }
 }
 ?>
@@ -81,9 +71,10 @@ if( !empty($_POST["password"])&& !empty($_POST["email"])) {
             <h2 class="passwordTitle"></h2>
             <input name="password" type="password" id="password" class="login-formInput" rows="100" placeholder="パスワードを入力"></input>
             <p class="error_password_message delate">パスワードが間違っています</p>
+            <p class=""><?php echo $error_password_message; ?></p>
             <input name="email" type="text" id="email" class="login-formInput" rows="100" placeholder="メールアドレスを入力"></input>
             <p class="error_email_message delate">メールアドレスが間違っています</p>
-            <button type="submit" class="login-formButton">ログイン</button>
+            <button type="button" class="login-form_false_Button">ログイン</button>
             </form>
             <div class="login-form-subText"><a href="" class="">パスワードを忘れた場合</a></div>
             <div class="login-form-subText"><a href="" class="">管理者ログイン</a></div>
@@ -92,23 +83,25 @@ if( !empty($_POST["password"])&& !empty($_POST["email"])) {
     </main>
 </body>
 <script>
-// let class_login_buttton = document.querySelector(".login-formButton");
-// function class_login_button_click(event) {
-//     let password = document.querySelector("#password");
-//     let email = document.querySelector("#email");
-//     let password_message = document.querySelector(".error_password_message.delate");
-//     let email_message = document.querySelector(".error_email_message.delate");
-//     if(password.value == ""){
-//         password_message.classList.remove("delate");
-//         return;
-//     }
-//     if(email.value == ""){
-//         email_message.classList.remove("delate");
-//         return;
-//     }
-//     document.querySelector(".login-formInputs").submit();
-
-// }
-// class_login_button.addEventListener("click",class_login_button_click);
+let class_login_button = document.querySelector(".login-form_false_Button");
+function class_login_button_click(event) {
+    let password = document.querySelector("#password");
+    let email = document.querySelector("#email");
+    let password_message = document.querySelector(".error_password_message.delate");
+    let email_message = document.querySelector(".error_email_message.delate");
+    let validation_error = 0;
+    if(password.value == ""){
+        password_message.classList.remove("delate");
+        validation_error ++;
+    }
+    if(email.value == ""){
+        email_message.classList.remove("delate");
+        validation_error ++;
+    }
+    if(validation_error == 0){
+        document.querySelector(".login-formInputs").submit();
+    }
+}
+class_login_button.addEventListener("click",class_login_button_click);
 </script>
 </html>

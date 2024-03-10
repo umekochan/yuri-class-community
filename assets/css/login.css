@@ -111,7 +111,24 @@ body {
     margin: 20px 0px 10px 0px;
     cursor: pointer;
 }
+.login-form_false_Button {
+    font-size: 20px;
+    color: #fff;
+    background-color: #1877f2;
+    display: flex;
+    border-radius: 500px;
+    box-shadow: 3px 3px 10px rgba(39,51,145, .3);
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    transition: 0.5s;
+    margin: 20px 0 10px 0px;
+    cursor: pointer;
+}
 .login-formButton:hover {
+    opacity: 0.6;
+}
+.login-form_false_Button:hover {
     opacity: 0.6;
 }
 .login-form-subText {

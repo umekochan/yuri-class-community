@@ -47,6 +47,13 @@
         return;
     }
 
+    $get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id";
+    $statement = $db->query($get_user_sql);
+    $users_db = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $users = array_column($users_db,"name","id");
+    $class_users = array_column($users_db,"class_number","id");
+    $grade_users = array_column($users_db,"grade_number","id");
+    
     global $login_user;
 ?>
 <!DOCTYPE html>
@@ -89,20 +96,22 @@
                     <div class="top menu_introduce">自己紹介</div>
                 </div>
             </div>
+            <?php foreach($users_db as $user): ?>
             <div class="student">
                 <div class="s_grade">
-                    <div class="student_grade">２年</div>
+                    <div class="student_grade"><?php echo $user["grade_number"]; ?>年</div>
                 </div>
                 <div class="s_class">
-                    <div class="student_class">４組</div>
+                    <div class="student_class"><?php echo $user["class_number"]; ?>組</div>
                 </div>
                 <div class="s_name">
-                    <a href="classpage_class_member.php" class="student_name" style="text-decoration: underline"><?php echo $login_user["name"]; ?></a>
+                    <a href="classpage_class_member.php" class="student_name" style="text-decoration: underline"><?php echo $user["name"]; ?></a>
                 </div>
                 <div class="s_introduce">
-                    <div class="student_introduce"><?= $result["profile"]; ?></div>
+                    <div class="student_introduce"><?php echo $user["profile"]; ?></div>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
     </main>
 </div>
