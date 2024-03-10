@@ -27,7 +27,16 @@ $result = $statement->fetch();
 if( !$result ) {
     return;
 }
-
+$login_id = $_SESSION["id"];
+$get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id where login.id = {$login_id}";
+    $statement = $db->query($get_user_sql);
+    $users_db = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $grades = $users_db[0]["grade_number"];
+    $classes = $users_db[0]["class_number"];
+$get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id where grade_number = {$grades} and class_number = {$classes}";
+    $statement = $db->query($get_user_sql);
+    $users_db = $statement->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($users_db);
 global $login_user;
 ?>
 <!DOCTYPE html>
