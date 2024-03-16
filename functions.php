@@ -3,9 +3,9 @@
     $url = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
     $url = preg_replace("#\/[a-zA-Z0-9\-_.]+\.php$#u", "/" ,$url);
     //db接続情報
-    $db_name = "mysql:host=localhost; dbname=class_community;";
+    $db_name = "mysql:host=mysql; dbname=class_community;";
     $db_username = "root";
-    $db_password = "";
+    $db_password = "root";
     //db接続
     try {
         $db = new PDO($db_name, $db_username, $db_password);
@@ -18,16 +18,16 @@
     }
     function get_db() {
         //db接続情報
-        $db_name = "mysql:host=localhost; dbname=class_community;";
+        $db_name = "mysql:host=mysql; dbname=class_community;";
         $db_username = "root";
-        $db_password = "";
+        $db_password = "root";
         //db接続
         try {
             $db = new PDO($db_name, $db_username, $db_password);
         } catch ( PDOException $e) {
             //エラー処理
             $msg = $e->getMessage();
-            echo "DB接続エラー__Error";
+            echo "DB接続エラー__Error2";
             echo $msg;
             exit;
         }

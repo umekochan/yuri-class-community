@@ -5,9 +5,9 @@ if( !empty($_POST["password"])&& !empty($_POST["email"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
     //db接続情報
-    $db_name = "mysql:host=localhost; dbname=class_community;";
+    $db_name = "mysql:host=mysql; dbname=class_community;";
     $db_username = "root";
-    $db_password = "";
+    $db_password = "root";
 
     //db接続
     try {
@@ -20,7 +20,7 @@ if( !empty($_POST["password"])&& !empty($_POST["email"])) {
         exit;
     }
     //SQL文の定義
-    $sql = "SELECT * FROM login WHERE email = :email";
+    $sql = "SELECT * FROM student WHERE email = :email";
     //SQLステートメントの準備
     $statement = $db->prepare($sql);
     $statement->bindValue(':email', $_POST['email']);
@@ -32,13 +32,14 @@ if( !empty($_POST["password"])&& !empty($_POST["email"])) {
         $error_message .= "無効なユーザーです";
     }
     //パスワードが一致するか
-    if ( $_POST['password'] === $result['password'] ) {
+    // var_dump($_POST['password'], $result['passowrd']);
+    if ( $_POST['password'] == $result['password'] ) {
         $_SESSION["id"] = $result["id"];
         $_SESSION["email"] = $result["email"];
         header("Location:{$url}schoolpage.php");
         exit;
     } else {
-        $error_password_message = "パスワードが一致しません";
+        $error_password_message = "パスワードが一致しません1";
     }
 }
 ?>
