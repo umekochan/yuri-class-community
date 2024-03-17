@@ -2,20 +2,20 @@
     session_start();
     $url = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
     $url = preg_replace("#\/[a-zA-Z0-9\-_.]+\.php$#u", "/" ,$url);
-    //db接続情報
-    $db_name = "mysql:host=localhost; dbname=class_community;";
-    $db_username = "root";
-    $db_password = "";
-    //db接続
-    try {
-        $db = new PDO($db_name, $db_username, $db_password);
-    } catch ( PDOException $e) {
-        //エラー処理
-        $msg = $e->getMessage();
-        echo "DB接続エラー__Error";
-        echo $msg;
-        exit;
-    }
+    // //db接続情報
+    // $db_name = "mysql:host=localhost; dbname=class_community;";
+    // $db_username = "root";
+    // $db_password = "";
+    // //db接続
+    // try {
+    //     $db = new PDO($db_name, $db_username, $db_password);
+    // } catch ( PDOException $e) {
+    //     //エラー処理
+    //     $msg = $e->getMessage();
+    //     echo "DB接続エラー__Error";
+    //     echo $msg;
+    //     exit;
+    // }
     function get_db() {
         //db接続情報
         $db_name = "mysql:host=localhost; dbname=class_community;";
@@ -38,7 +38,7 @@
     //SQL文の定義
     $sql = "SELECT * FROM login WHERE id = :id";
     //SQLステートメントの準備
-    $statement = $db->prepare($sql);
+    $statement = get_db()->prepare($sql);
     $statement->bindValue(':id', $student_id);
     //SQL実行
     $statement->execute();
@@ -58,5 +58,25 @@
     function sc_is_login(){
         $login = !empty($_SESSON["id"]);
         return $login;
+    }
+
+    function get_query(string $sql,array $datas=null,bool $all) {
+        if(empty($datas)){
+            $statement = get_db()->query($sql);
+        }else{
+            $statement = get_db()->prepare($sql);
+            foreach($datas as $key=>$data){
+                $statement->bindValue($key,$data,PDO::PARAM_STR);
+            }
+        }
+        //SQL実行
+        var_dump($statement);
+        $statement->execute();
+        if($all == true) {
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        }else{
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+        }
+        return $result;
     }
     ?>

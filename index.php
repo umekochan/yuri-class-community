@@ -4,30 +4,16 @@ if( !empty($_POST["password"])&& !empty($_POST["email"])) {
     $error_message = "";
     $email = $_POST["email"];
     $password = $_POST["password"];
-    //db接続情報
-    $db_name = "mysql:host=localhost; dbname=class_community;";
-    $db_username = "root";
-    $db_password = "";
-
-    //db接続
-    try {
-        $db = new PDO($db_name, $db_username, $db_password);
-    } catch ( PDOException $e) {
-        //エラー処理
-        $msg = $e->getMessage();
-        echo "DB接続エラー__Error";
-        echo $msg;
-        exit;
-    }
+    get_db();
     //SQL文の定義
     $sql = "SELECT * FROM login WHERE email = :email";
-    //SQLステートメントの準備
-    $statement = $db->prepare($sql);
-    $statement->bindValue(':email', $_POST['email']);
-    //SQL実行
-    $statement->execute();
-    //結果の取得
-    $result = $statement->fetch();
+    // //SQLステートメントの準備
+    // $statement = get_db()->prepare($sql);
+    // $statement->bindValue(':email', $_POST['email']);
+    // //SQL実行
+    // $statement->execute();
+    $datas = [":email" => $_POST["email"]];
+    $result = get_query($sql,$datas,false);
     if( !$result ) {
         $error_message .= "無効なユーザーです";
     }

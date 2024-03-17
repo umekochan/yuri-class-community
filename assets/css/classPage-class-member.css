@@ -74,6 +74,9 @@
 .classMember {
     opacity: 0.6;
 }
+.class_members {
+    width: 90%;
+}
 .class_member {
     border-bottom: 1px solid #e0bfbf;
     width: 100%;
