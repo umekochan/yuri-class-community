@@ -18,9 +18,9 @@
     // }
     function get_db() {
         //db接続情報
-        $db_name = "mysql:host=localhost; dbname=class_community;";
+        $db_name = "mysql:host=mysql; dbname=class_community;";
         $db_username = "root";
-        $db_password = "";
+        $db_password = "root";
         //db接続
         try {
             $db = new PDO($db_name, $db_username, $db_password);
@@ -70,7 +70,6 @@
             }
         }
         //SQL実行
-        var_dump($statement);
         $statement->execute();
         if($all == true) {
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
