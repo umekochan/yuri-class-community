@@ -1,16 +1,48 @@
 <?php require_once "functions.php"; ?>
 <?php 
     $db = get_db();
-    if(!empty($_POST["search_keyword"])) {
-        $get_user_sql = "select * from login where name LIKE :name OR profile LIKE :profile";
-        $datas = [":name" => "%".$_POST['search_keyword']."%",":profile" => "%".$_POST['search_keyword']."%"];
+    //!empty($_GET["grade"]) || !empty($_GET["class"]) || !empty($_GET["search_keyword"])
+    if(!empty($_GET)) {
+        //検索条件が指定されている
+        $datas = [];
+        $query_keyword = '';
+        $query_grade = '';
+        $query_class = '';
+        
+        if(!empty($_GET["search_keyword"])){
+            $keyword = $_GET["search_keyword"];
+            $datas[":name"] = "%{$keyword}%";
+            $datas[":profile"] = "%{$keyword}%";
+            $query_keyword = "WHERE name LIKE :name OR profile LIKE :profile";
+        }
+        if(!empty($_GET['grade'])){
+            $grade = $_GET['grade'];
+            $datas[":grade"] = $grade;
+            $query_grade = "AND grade.id = :grade";
+        }
+        if(!empty($_GET['class'])){
+            $class = $_GET['class'];
+            $datas[":class"] = $class;
+            $query_class = "AND class.id = :class";
+        }
+        
+        $get_user_sql = "SELECT login.*, grade.grade_number, class.class_number 
+        FROM login 
+        INNER JOIN class ON class.id = class_id {$query_class} 
+        INNER JOIN grade ON grade.id = grade_id {$query_grade} 
+         {$query_keyword}";
+        print_r($get_user_sql);
         $users_db = get_query($get_user_sql,$datas,true);
-        // $users = array_column($users_db,"name","id");
     }else{
-        $get_user_sql = "select id, name from login";
+        $get_user_sql = "select login.*, login.name, grade.grade_number, class.class_number from login inner join class on class.id = class_id inner join grade on grade.id = grade_id";
         $users_db = get_query($get_user_sql,null,true);
-        $users = array_column($users_db,"name","id");
     }
+
+    $grade_sql = "SELECT * FROM grade";
+    $grade_lists = get_query($grade_sql, null, true);
+
+    $class_sql = "SELECT * FROM class";
+    $class_lists = get_query($class_sql, null, true);
     // $student_id = $_SESSION["id"];
     // //db接続情報
     // $db_name = "mysql:host=localhost; dbname=class_community;";
@@ -40,12 +72,12 @@
     //     return;
     // }
 
-    $get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id";
-    $statement = $db->query($get_user_sql);
-    $users_db = $statement->fetchAll(PDO::FETCH_ASSOC);
-    $users = array_column($users_db,"name","id");
-    $class_users = array_column($users_db,"class_number","id");
-    $grade_users = array_column($users_db,"grade_number","id");
+    // $get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id";
+    // $statement = $db->query($get_user_sql);
+    // $users_db = $statement->fetchAll(PDO::FETCH_ASSOC);
+    // $users = array_column($users_db,"name","id");
+    // $class_users = array_column($users_db,"class_number","id");
+    // $grade_users = array_column($users_db,"grade_number","id");
     
     global $login_user;
 ?>
@@ -56,6 +88,18 @@
     <?php include "parts/head.php"; ?>
     <link rel="stylesheet" href="<?= $url; ?>assets/css/find-students.css">
     <title>Class Community--find students</title>
+    <style>
+        .find-student select {
+            border: 1px solid #ccc;
+            padding: .6rem 2rem;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            background-color: white;
+            min-width: 5rem;
+            margin-right: 1rem;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <?php include "parts/header.php"; ?>
@@ -64,9 +108,21 @@
         <?php include "parts/aside.php"; ?>
     </aside>
     <main class="main">
-        <form action="" method="post">
+        <form method="GET">
             <div class="find-student">
                 <div class="find-student-input">
+                    <select name="grade" id="search_grade">
+                        <option selected disabled value>学年</option>
+                        <?php foreach($grade_lists as $grade): ?>
+                            <option value="<?= $grade['id']; ?>"><?= $grade['grade_number']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <select name="class" id="search_class">
+                        <option selected disabled value>クラス</option>
+                        <?php foreach($class_lists as $class): ?>
+                            <option value="<?= $class['id']; ?>"><?= $class['class_number']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                     <input name="search_keyword" type="text" size="85" class="searchBox" placeholder="キーワードを入力"></input>
                 </div>
                 <div class="find-student-box">
