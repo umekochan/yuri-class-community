@@ -62,15 +62,17 @@
 
     function get_query(string $sql,array $datas=null,bool $all) {
         if(empty($datas)){
+            //SQL実行
             $statement = get_db()->query($sql);
         }else{
             $statement = get_db()->prepare($sql);
             foreach($datas as $key=>$data){
                 $statement->bindValue($key,$data,PDO::PARAM_STR);
             }
+            //SQL実行
             $statement->execute();
         }
-        //SQL実行
+        //結果の取得
         if($all == true) {
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         }else{
@@ -78,4 +80,23 @@
         }
         return $result;
     }
-    ?>
+
+    function set_query(string $sql, $datas = null){
+        if(empty($datas)){
+            $statement = get_db()->query($sql);
+        }else {
+            $statement = get_db()->prepare($sql);
+            foreach($datas as $key => $data){
+                $statement->bindValue($key, $data);
+            }
+        }
+    }
+
+    function getGood(){
+        return ["a"=>1, "b"=>3];
+    }
+    function setGood(){
+
+    }
+
+?>

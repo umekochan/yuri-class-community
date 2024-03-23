@@ -38,6 +38,25 @@
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 ?>
+<?php
+// リクエストを受け取り、必要な処理を行う
+// $data = json_decode(file_get_contents('php://input'), true);
+
+// if ($data && isset($data['postId'])) {
+//     $postId = $data['postId'];
+    
+//     $goods = get_query("SELECT good FROM community_posts WHERE id = :id", [":id" => $postId], 0);
+//     $currentLikes = $goods; // データベースから取得したいいねの数
+//     $newLikes = $currentLikes + 1; // 新しいいいねの数
+//     // ここでデータベースを更新するなどの処理を行う
+//     // この例では単純化されていますが、実際のアプリケーションではデータベース接続やエラーハンドリングが必要です
+//     // 以下はダミーのレスポンスです
+//     echo json_encode(['success' => true, 'newLikes' => $newLikes]);
+// } else {
+//     // リクエストが正しくない場合のエラー処理
+//     echo json_encode(['success' => false, 'message' => 'Invalid request']);
+// }
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -52,6 +71,10 @@
         <?php include "parts/aside.php"; ?>
     </aside>
     <main class="main">
+        <div class="like">
+            <button id="likeButton" type="button">いいね</button>
+
+        </div>
         <form action="" method="post">
             <div class="contribtion-wrapper">
                 <div class="contribtion">
@@ -93,6 +116,11 @@
                 <div class="threads_wrapper">
                     <div class="threads">
                         <?php foreach($posts as $post): ?> 
+                        <?php 
+                            //ページアクセス時にいいねを取得
+                            $post_good = !empty($post['good']) ? json_decode($post['good'], true) : ["user_id" => []];
+                            $post_good_count = count($post_good['user_id']);
+                        ?>
                         <div class="thread">
                             <div class="thread_user_name">
                                 <a href="find_students.php" class="user" style="text-decoration: underline"><p class=""><?php echo $grade_users[$post["user_id"]]; ?>年<?php echo $class_users[$post["user_id"]]; ?>組<?php echo $users[$post["user_id"]]; ?></p></a>
@@ -105,6 +133,9 @@
                             </div>
                             <div class="thread_text">
                                 <p class="text">質問内容:<?php echo $post["text"]; ?></p>
+                            </div>
+                            <div class="good_btn">
+                                <button type="button" class="good_btn good_btn-<?= $post["id"]; ?>" data-pid="<?= $post["id"]; ?>" style="font-size:2rem">♥<span class="good_count"><?= $post_good_count; ?></span></button>
                             </div>
                             <div class="replay_wrapper">
                                 <form action="" method="post" class="replay_form">
@@ -183,5 +214,52 @@
         element.addEventListener("click",replay_comments_delate_click);
     }); 
     
+</script>
+<script>
+    const good_send = function(e) {
+        //いいねするpost_idを取得
+        let btn = e.currentTarget;
+        let post_id = e.currentTarget.getAttribute('data-pid');
+        //ログインユーザーのidを取得
+        let login_id = <?= $_SESSION['id']; ?>;
+
+        fetch('async.php', {
+            method: 'POST', // POSTリクエストを送信
+            body: JSON.stringify({ // リクエストボディにいいね情報を含める
+                good: 'update',
+                good_data: {
+                    author: login_id,
+                    post_id: post_id,
+                },
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            // ここで適切なレスポンスを処理する
+            // console.log("=== respons! ===",data);
+            let element_btn_count = btn.querySelector('.good_count');
+            element_btn_count.textContent = data['post_good_count'];
+        })
+        .catch(error => {
+            // エラーを処理する
+            console.error('There was an error!', error);
+        });
+    }
+
+    let good_btns = document.querySelectorAll(".good_btn");
+    good_btns.forEach((good_btn)=>{
+        //子孫要素にeventをハンドリングさせない
+        if(good_btn.getAttribute('data-pid')) {
+            good_btn.addEventListener('click',good_send);
+        }
+    });
 </script>
 </html>
