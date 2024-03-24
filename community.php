@@ -73,6 +73,9 @@
                 </div>
             </div>
         </form>
+        <div class="json_test">test</div>
+        <button class="test_button">button</button>
+        
             <div class="main-lists">
                 <div class="search-thread">
                     <form action="" method="post" class="">
@@ -112,7 +115,8 @@
                                     <textarea name="replay_message" class="replay_message" id="" cols="70" rows="2" required></textarea>
                                     <input type="hidden" class="" name="post_id" value="<?php echo $post["id"]; ?>">
                                     <button type="submit" class="listMenu__button send_message_button">コメントを送信</button>
-                                </form>     
+                                    <button type="button" class="good_button" data-post_id = <?php echo $post["id"]; ?>><i class="fa-regular fa-heart"></i></button>
+                                </form>
                                 <div class="replay_comments">
                                     <div class="replay_comments_display_button">
                                         <button type="button" class="listMenu__button display_message_button"><i class="fa-solid fa-arrow-down"></i>コメントを表示</button>
@@ -184,4 +188,37 @@
     }); 
     
 </script>
+<script>
+            let json_test_button = document.querySelector(".test_button");
+            let heart_buttons = document.querySelectorAll(".good_button");
+            heart_buttons.forEach(function(element){
+                console.log("heart_click");
+                element.addEventListener("click",function(e){
+                    let login_id = <?php echo $_SESSION["id"]; ?>;
+                    let post_id = e.currentTarget.getAttribute("data-post_id");
+                    fetch("async.php",{
+                        method: "POST",
+                        body: JSON.stringify({
+                            good:{
+                                user_id: login_id,
+                                post_id: post_id,
+                            },
+                        }),
+                        headers:{
+                            'Content-type':'application/json; charset=UTF-8',
+                        },
+                    })
+                    .then(Response => {
+                        if(Response.ok){
+                            return Response.json();
+                        }
+                    })
+                    .then(data => {
+                        console.log(data);
+                        let test_text = document.querySelector(".json_test");
+                        test_text.textContent = data["good"];
+                    })
+                });
+            });
+        </script>
 </html>

@@ -1,20 +1,20 @@
 <?php require_once "functions.php"; 
 $student_id = $_SESSION["id"];
 // //db接続情報
-// $db_name = "mysql:host=localhost; dbname=class_community;";
-// $db_username = "root";
-// $db_password = "";
+$db_name = "mysql:host=localhost; dbname=class_community;";
+$db_username = "root";
+$db_password = "";
 
-// //db接続
-// try {
-//     $db = new PDO($db_name, $db_username, $db_password);
-// } catch ( PDOException $e) {
-//     //エラー処理
-//     $msg = $e->getMessage();
-//     echo "DB接続エラー__Error";
-//     echo $msg;
-//     exit;
-// }
+//db接続
+try {
+    $db = new PDO($db_name, $db_username, $db_password);
+} catch ( PDOException $e) {
+    //エラー処理
+    $msg = $e->getMessage();
+    echo "DB接続エラー__Error";
+    echo $msg;
+    exit;
+}
 //SQL文の定義
 if(!empty($_POST["profile"])) {
     $sql = "UPDATE login SET profile = :profile WHERE id = :id";

@@ -1,53 +1,55 @@
 <?php require_once "functions.php"; ?>
 <?php 
     $db = get_db();
-    if(!empty($_POST["search_keyword"])) {
-        $get_user_sql = "select * from login where name LIKE :name OR profile LIKE :profile";
-        $datas = [":name" => "%".$_POST['search_keyword']."%",":profile" => "%".$_POST['search_keyword']."%"];
+    if(empty($_GET["search_keyword"])) {
+        $_GET["search_keyword"] = "";
+    }
+    if(!empty($_GET["search_keyword"] || !empty($_GET["grade_select"]) || !empty($_GET["class_select"]))) {
+        $datas = [];
+        $search_grade_sql = "";
+        $search_class_sql = "";
+        $search_keyword_sql = "";
+        if(!empty($_GET["grade_select"])){
+            $search_grade = $_GET["grade_select"];
+            $search_grade_sql = " and grade_id = :grade";
+            $datas[":grade"] = $search_grade;
+        }
+        if(!empty($_GET["class_select"])){
+            $search_class = $_GET["class_select"];
+            $search_class_sql = " and class_id = :class";
+            $datas[":class"] = $search_class;
+        }
+        if(!empty($_GET["search_keyword"])){
+            $keyword = $_GET["search_keyword"];
+            $search_keyword_sql = " and (name LIKE :name or profile LIKE :profile)";
+            $datas[":name"] = "%{$keyword}%";
+            $datas[":profile"] = "%{$keyword}%";
+        }
+        $get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id where 1";
+        // $datas = [":name" => "%".$_GET['search_keyword']."%",":profile" => "%".$_GET['search_keyword']."%"];
+        if($search_grade_sql !== "") {
+            $get_user_sql .= $search_grade_sql;
+        }
+        if($search_class_sql !== "") {
+            $get_user_sql .= $search_class_sql;
+        }
+        if($search_keyword_sql !== "") {
+            $get_user_sql .= $search_keyword_sql;
+        }
         $users_db = get_query($get_user_sql,$datas,true);
         // $users = array_column($users_db,"name","id");
     }else{
-        $get_user_sql = "select id, name from login";
+        $get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id";
         $users_db = get_query($get_user_sql,null,true);
-        $users = array_column($users_db,"name","id");
     }
-    // $student_id = $_SESSION["id"];
-    // //db接続情報
-    // $db_name = "mysql:host=localhost; dbname=class_community;";
-    // $db_username = "root";
-    // $db_password = "";
-    
-    // //db接続
-    // try {
-    //     $db = new PDO($db_name, $db_username, $db_password);
-    // } catch ( PDOException $e) {
-    //     //エラー処理
-    //     $msg = $e->getMessage();
-    //     echo "DB接続エラー__Error";
-    //     echo $msg;
-    //     exit;
-    // }
-    // //SQL文の定義
-    // $sql = "SELECT * FROM login WHERE id = :id";
-    // //SQLステートメントの準備
-    // $statement = $db->prepare($sql);
-    // $statement->bindValue(':id', $student_id);
-    // //SQL実行
-    // $statement->execute();
-    // //結果の取得
-    // $result = $statement->fetch();
-    // if( !$result ) {
-    //     return;
-    // }
-
-    $get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id";
-    $statement = $db->query($get_user_sql);
-    $users_db = $statement->fetchAll(PDO::FETCH_ASSOC);
     $users = array_column($users_db,"name","id");
     $class_users = array_column($users_db,"class_number","id");
     $grade_users = array_column($users_db,"grade_number","id");
     
-    global $login_user;
+    $get_grade_sql = "select * from grade";
+    $grades = get_query($get_grade_sql,null,true);
+    $get_class_sql = "select * from class";
+    $classes = get_query($get_class_sql,null,true);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -64,8 +66,26 @@
         <?php include "parts/aside.php"; ?>
     </aside>
     <main class="main">
-        <form action="" method="post">
+        <form action="" method="get">
             <div class="find-student">
+            <div class="select">
+                <div class="grades">
+                    <select name="grade_select">
+                        <option disabled selected value>学年</option>
+                        <?php foreach($grades as $grade): ?>
+                            <option value="<?php echo $grade["id"] ?>"><?php echo $grade["grade_number"]; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="classes">
+                <select name="class_select">
+                        <option disabled selected value>クラス</option>
+                        <?php foreach($classes as $class): ?>
+                            <option value="<?php echo $class["id"] ?>"><?php echo $class["class_number"]; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
                 <div class="find-student-input">
                     <input name="search_keyword" type="text" size="85" class="searchBox" placeholder="キーワードを入力"></input>
                 </div>

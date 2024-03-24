@@ -1,6 +1,6 @@
 <?php //セッションの開始
     session_start();
-    $url = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+    $url = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["SCRIPT_NAME"];
     $url = preg_replace("#\/[a-zA-Z0-9\-_.]+\.php$#u", "/" ,$url);
     // //db接続情報
     // $db_name = "mysql:host=localhost; dbname=class_community;";
@@ -70,7 +70,6 @@
             }
         }
         //SQL実行
-        var_dump($statement);
         $statement->execute();
         if($all == true) {
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);

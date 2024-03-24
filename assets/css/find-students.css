@@ -1,12 +1,38 @@
 .listMenu__buttonLayout2 {
     opacity: 0.6;
 }
-.main{
+.main {
     width: 100%;
     background-color: rgb(187 181 181 / 20%);
 }
+.select{
+    display: flex;
+    padding: 10px;
+}
+.grades {
+    display: flex;
+    font-size: 17px;
+    background-color: white;
+    border: 1px solid #e0bfbf;
+    width: fit-content;
+    border-radius: 5px;
+    padding: fit-content;
+}
+.classes {
+    margin-left: 10px;
+    display: flex;
+    padding: fit-content;
+    border-radius: 5px;
+    font-size: 17px;
+    background-color: white;
+    border: 1px solid #e0bfbf;
+    width: fit-content;
+}
+.find-student {
+    display: flex;
+    padding: 30px 0 30px 80px;
+}
 .find-student-input {
-    padding-top: 30px;
     display: flex;
     justify-content: center;
 }
@@ -20,12 +46,8 @@
 .searchBox::placeholder {
     color: #999696;
 }
-.find-student-box {
-    padding: 0 400px 50px 0;
-}
 .listMenu__button--find-student {
-    margin-left: 450px;
-    margin-top: 20px;
+    margin-left: 20px;
     font-size: 17px;
 }
 .listMenu__button--find-student:hover {
