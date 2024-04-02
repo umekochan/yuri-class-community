@@ -73,9 +73,6 @@
                 </div>
             </div>
         </form>
-        <div class="json_test">test</div>
-        <button class="test_button">button</button>
-        
             <div class="main-lists">
                 <div class="search-thread">
                     <form action="" method="post" class="">
@@ -115,7 +112,7 @@
                                     <textarea name="replay_message" class="replay_message" id="" cols="70" rows="2" required></textarea>
                                     <input type="hidden" class="" name="post_id" value="<?php echo $post["id"]; ?>">
                                     <button type="submit" class="listMenu__button send_message_button">コメントを送信</button>
-                                    <button type="button" class="good_button" data-post_id = <?php echo $post["id"]; ?>><i class="fa-regular fa-heart"></i></button>
+                                    <button type="button" class="good_button" data-post_id = <?php echo $post["id"]; ?>><i class="fa-regular fa-heart"></i><span class="good_count">0</span></button>
                                 </form>
                                 <div class="replay_comments">
                                     <div class="replay_comments_display_button">
@@ -192,10 +189,12 @@
             let json_test_button = document.querySelector(".test_button");
             let heart_buttons = document.querySelectorAll(".good_button");
             heart_buttons.forEach(function(element){
-                console.log("heart_click");
+                // console.log("heart_click");
                 element.addEventListener("click",function(e){
+                    let target = e.currentTarget;
                     let login_id = <?php echo $_SESSION["id"]; ?>;
                     let post_id = e.currentTarget.getAttribute("data-post_id");
+                    console.log('post:', post_id);
                     fetch("async.php",{
                         method: "POST",
                         body: JSON.stringify({
@@ -214,9 +213,9 @@
                         }
                     })
                     .then(data => {
-                        console.log(data);
-                        let test_text = document.querySelector(".json_test");
-                        test_text.textContent = data["good"];
+                        let counter = target.querySelector('.good_count');
+                        counter.textContent = data['count'];
+                        counter.classList.add('gave_good')
                     })
                 });
             });

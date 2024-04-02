@@ -118,7 +118,7 @@
                     <div class="student_class"><?php echo $user["class_number"]; ?>組</div>
                 </div>
                 <div class="s_name">
-                    <a href="classpage_class_member.php" class="student_name" style="text-decoration: underline"><?php echo $user["name"]; ?></a>
+                    <a href="classpage_class_member.php?c=1" class="student_name" style="text-decoration: underline"><?php echo $user["name"]; ?></a>
                 </div>
                 <div class="s_introduce">
                     <div class="student_introduce"><?php echo $user["profile"]; ?></div>
